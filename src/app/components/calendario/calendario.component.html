@@ -1,0 +1,41 @@
+<div class="calendar-controls">
+  <mat-form-field appearance="outline">
+    <mat-label>Mês</mat-label>
+    <mat-select [(ngModel)]="selectedMonth" (selectionChange)="updateCalendar()">
+      <mat-option *ngFor="let month of months; let i = index" [value]="i">
+        {{ month }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ano</mat-label>
+    <mat-select [(ngModel)]="selectedYear" (selectionChange)="updateCalendar()">
+      <mat-option *ngFor="let year of years" [value]="year">
+        {{ year }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- Aqui virá a grade de dias, que faremos na próxima etapa -->
+<div class="calendar-container">
+    <div class="weekdays">
+        <div *ngFor="let day of weekDays" class="weekday">
+            {{ day }}
+        </div>
+    </div>
+
+    <!-- Grid com os dias do mês -->
+     <div class="calendar-wrapper"> 
+        <div class="calendar-grid">
+            <ng-container *ngFor="let day of calendarDays">
+                <mat-card class="calendar-card" *ngIf="day.date !== null">
+                <div class="day-number">{{ day.date }}</div>
+                    <textarea [(ngModel)]="day.text" (input)="autoResize($event)" rows="1"placeholder="Anotações..."></textarea>
+                </mat-card>
+                <div class="calendar-placeholder" *ngIf="day.date === null"></div>
+            </ng-container>
+        </div>
+    </div>
+</div>

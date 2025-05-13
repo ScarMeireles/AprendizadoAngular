@@ -1,1 +1,30 @@
-<app-home></app-home>
+<mat-sidenav-container class="sidenav-container">
+
+   <mat-sidenav #sidenav mode="side" [opened]="false" class="sidenav">
+    <mat-nav-list>
+      <!-- Os links NÃO devem fechar a sidenav -->
+      <a mat-list-item routerLink="/home" (click)="$event.stopPropagation()">Home</a>
+      <a mat-list-item routerLink="/dashboard" (click)="$event.stopPropagation()">Dashboard</a>
+      <a mat-list-item routerLink="/calendario" (click)="$event.stopPropagation()">Calendario</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+        <mat-icon>menu</mat-icon>
+        </button>
+        <span>Projeto Angular Arthur Meireles</span>
+    </mat-toolbar>
+
+    <!-- Conteúdo das rotas -->
+    <router-outlet></router-outlet>
+ 
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="footer">
+    <p>Desenvolvido por Arthur Meireles</p>
+    <p>2025</p>
+</div>

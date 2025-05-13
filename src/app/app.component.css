@@ -1,0 +1,38 @@
+.sidenav {
+  width: 180px;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.conteudo {
+  padding: 16px;
+}
+.sidenav-container {
+  height: 100vh;
+}
+.menu-button {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  
+  color: inherit; /* Usa a cor do texto atual (ex: branco, se estiver em fundo escuro) */
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.menu-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 50px;
+    padding: 0 10px;
+    align-items: center;
+}
